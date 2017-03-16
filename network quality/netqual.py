@@ -5,13 +5,15 @@ import pandas as pd
 import wquantiles
 import os
 
+# uses pyepanet included with WNTR - https://github.com/USEPA/WNTR
+
 # -- network water quality statistics over time, from the population of volume-weighted quality --
 # this answers the question "what is the mean/median/x-percentile water quality delivered to customers,
 # if you were actually measuring it for each liter (say) of water that runs through any customer connection."
 # Results are put in a csv file, and simulation results are saved in hdf5 for later use.
 
 # input file - either Epanet (inp) or HDF5 stored results (h5) depending on extension
-inpFile = 'Model_2016-08-01T04-00-00Z_2016-11-21T04-00-00Z_snapshot.inp'
+inpFile = 'Net1.inp'
 # quality statistics are computed every statStep (hours) for the entire network,
 statStep = 1.0
 # over a backward looking time window of statWindow (also hours)
